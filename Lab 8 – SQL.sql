@@ -209,15 +209,16 @@ ORDER BY employee_id DESC;
 
 -- GREAT RESOURCE => https://docs.oracle.com/cd/B19306_01/appdev.102/b14251/adfns_regexp.htm
 
--- SELECT last_name
--- FROM student.student
--- WHERE last_name like('Arch%');
+SELECT last_name
+FROM student.student
+WHERE last_name like('Arch%');
 
 -- SELECT last_name AS "Sounds like Archer"
 -- FROM student.student
 -- WHERE REGEXP_LIKE(last_name, '^Arch(e|o)r$')
 
 -- SOUNDEX FUNCTION => http://www.techonthenet.com/oracle/functions/soundex.php
+-- https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions148.htm
 
 SELECT last_name
 FROM student.student
