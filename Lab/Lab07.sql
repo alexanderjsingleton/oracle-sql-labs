@@ -265,11 +265,18 @@ ORDER BY INVOICE_ID ASC;
 
 -- **** FLAG FOR REVIEW** According to StackExchange, there must be an error with this question?  Could you please advise-thank you!
 
+-- Original Answer
 
 SELECT DISTINCT v.vendor_name
 FROM ap.invoices i
 JOIN ap.vendors v ON i.vendor_id=v.vendor_id
 ORDER BY v.vendor_name ASC;
+
+-- Correction
+
+SELECT distinct(vendor_name)
+FROM ap.vendors
+ORDER BY 1;
 
 
 -- 11.  Display the vendor name for all invoices. Only include the vendors whose names are between 
