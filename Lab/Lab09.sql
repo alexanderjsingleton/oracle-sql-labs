@@ -5,6 +5,7 @@
 
 -- How to drop a table in Oracle SQL=>DROP TABLE Customer;
 -- http://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9003.htm
+-- DROP TABLE HR_JOBHX;
 
 -- Rename a table:
 
