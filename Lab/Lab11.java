@@ -9,7 +9,6 @@ public class test1 {
     }
     System.out.println("The sum of this problem is:  " + total);  
   }
-  
 }
 
 // #2 Do problem 1 using a while loop. (2 pts)
@@ -26,8 +25,6 @@ public class test1 {
   }
 }
 
-
-
 // #3 Using an if statement only, determine if a grade is below 70. If it is, display 
 // “Grade is below 70. The actual grade was xx.” Where xx is the actual grade value. Use 
 //  a hard-coded grade value of your choosing. (2 pts)
@@ -42,13 +39,9 @@ public class test1 {
   }
 }
 
-
-
-
 // #4 Using an if statement with an else clause, determine if a grade is below 70. If it
 // is, display “Grade is below 70.”. If it is at least 70, display “Grade is a C or 
 // better”. (2 pts)
-
 
 public class test1 {
   public static void main(String[] args) {
@@ -134,16 +127,12 @@ public static void main(String[] args)
       int A[] = new int[102];        // initializing the array
       for (int i = 1; i < 102; i++)
          A[i] = i+1;                 // why the i + 1 as opposed to just i ?
-
       int sum = 0;
       for (int i = 1; i < 102; i++)
          sum += A[i];               // shortcut for sum = sum + A[i]
-      
       // int sqsum = 0;
       // for (int i = 1; i < 101; i++)
       //    sqsum += A[i]*A[i];        // shortcut for sqsum = sqsum + A[i]*A[i]
-
-      
       System.out.println("Sum of numbers 1 to 101 is " + sum + ".");
       // System.out.println("Sum of first 100 square numbers is " + sqsum);
    }
@@ -166,24 +155,9 @@ public class test1 {
     System.out.println(count);
     int limit = 1497;
     for (int i = 9; i < limit; i++){
-     if( i % 11 == 0){
-       System.out.print(i + " ");
-     }
-   }          
- }
+      if( i % 11 == 0){
+        System.out.print(i + " ");
+      }
+    }          
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
