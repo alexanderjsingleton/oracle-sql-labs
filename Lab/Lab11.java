@@ -124,9 +124,58 @@ public class test1 {
 // #8 Populate an array using a for statement, with the numbers 1 through 101. Calculate 
 // the sum of the numbers by processing the array with a for statement. Display the sum. (4 pts)
 
+// http://stackoverflow.com/questions/409784/whats-the-simplest-way-to-print-a-java-array
+// http://pirate.shu.edu/~wachsmut/Teaching/CSAS2214/Virtual/Lectures/lecture2a.html
+// http://www.informit.com/articles/article.aspx?p=101766&seqNum=10
+
+public class test1 {
+public static void main(String[] args)
+   {
+      int A[] = new int[102];        // initializing the array
+      for (int i = 1; i < 102; i++)
+         A[i] = i+1;                 // why the i + 1 as opposed to just i ?
+
+      int sum = 0;
+      for (int i = 1; i < 102; i++)
+         sum += A[i];               // shortcut for sum = sum + A[i]
+      
+      // int sqsum = 0;
+      // for (int i = 1; i < 101; i++)
+      //    sqsum += A[i]*A[i];        // shortcut for sqsum = sqsum + A[i]*A[i]
+
+      
+      System.out.println("Sum of numbers 1 to 101 is " + sum + ".");
+      // System.out.println("Sum of first 100 square numbers is " + sqsum);
+   }
+}
+
 
 // #9 Use the range of numbers from 9 through 1497 within a for statement. Display all numbers
 // divisible by 11. In addition, after the for statement, display a count of the total numbers found that were divisible by 11. (4 pts)
+
+// http://javadevnotes.com/java-print-array-examples
+
+public class test1 {
+  public static void main(String[] args)
+  {
+    int count = 0;
+    for (int number = 9; number <=1497; number ++)
+    {
+      if (number%11 == 0) {count++;}
+    }
+    System.out.println(count);
+    int limit = 1497;
+    for (int i = 9; i < limit; i++){
+     if( i % 11 == 0){
+       System.out.print(i + " ");
+     }
+   }          
+ }
+}
+
+
+
+
 
 
 
