@@ -1,0 +1,8 @@
+1,2,31-mar-1998,85,mike,02-jun-1998,mike2,03-jun-1998
+2,3,01-mar-1998,85,mike,jun/01/1998,mike2,02-jun-1998
+
+  String insertStatement = "ALTER TABLE enrollment_copy ADD country VARCHAR2(4) (country)" + "DEFAULT ('USA')";
+
+ ALTER TABLE employee_copy ADD country VARCHAR2(4) DEFAULT 'USA' NOT NULL;
+
+        
