@@ -429,7 +429,7 @@ WHERE NAME = 'Sally';
 DBMS_OUTPUT.put_line('Sally is ' || title_sally || ' and has a salary of ' || salary_sally ||' .');
 exception
   WHEN NO_DATA_FOUND THEN
-  DBMS_OUTPUT.put_line('We are sorry- the query you are trying to structure is no longer available or outside the table area.  Message  number KS 20.');
+  DBMS_OUTPUT.put_line('We are sorry- the query you are trying to structure is no longer available or outside the table area- please check the code and type again; message  number ORA 01403.');
 end;
 
 
