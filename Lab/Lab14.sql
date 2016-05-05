@@ -99,14 +99,27 @@ end;
 
 -- http://stackoverflow.com/questions/17501909/type-keyword-help-me-in-interpreting-this-code-in-plsql
 
+-- SET SERVEROUTPUT ON
+-- declare
+--   min_invoice_total .invoices.invoice_total%TYPE;
+--   max_invoice_total ap.invoices.invoice_total%TYPE;
+-- begin
+--    SELECT MIN(invoice_total), MAX(invoice_total) INTO min_invoice_total,max_invoice_total
+--    FROM ap.invoices;
+--    DBMS_OUTPUT.put_line('The minimum invoice total is ' || min_invoice_total || ' while the maximum output total is ' || max_invoice_total || '.'); 
+-- end;
+
 SET SERVEROUTPUT ON
-declare
-  min_invoice_total ap.invoices.invoice_total%TYPE;
-  max_invoice_total ap.invoices.invoice_total%TYPE;
-begin
-   SELECT MIN(invoice_total), MAX(invoice_total) INTO min_invoice_total,max_invoice_total
-   FROM ap.invoices;
-   DBMS_OUTPUT.put_line('The minimum invoice total is ' || min_invoice_total || ' while the maximum output total is ' || max_invoice_total || '.'); 
+DECLARE 
+  salary_stella NUMBER; 
+  title_stella VARCHAR2(10);
+
+BEGIN
+
+  SELECT salary, title INTO salary_stella, title_stella
+  FROM student.employee
+  WHERE NAME = 'Stella';
+  DBMS_OUTPUT.put_line('Stella is ' || title_stella || ' and has a salary of ' || salary_stella ||' .');
 end;
 
 -- Problem 4 (3 pts)
@@ -403,27 +416,18 @@ END;
 -- -- Provide a useful error message to the user
 
 SET SERVEROUTPUT ON
-declare
-  min_invoice_total ap.invoices.invoice_total%TYPE;
-  max_invoice_total ap.invoices.invoice_total%TYPE;
-begin
-   SELECT MIN(invoice_total), MAX(invoice_total) INTO min_invoice_total,max_invoice_total
-   FROM ap.invoices;
-   WHERE name = 'Fred'
-   DBMS_OUTPUT.put_line('The minimum invoice total is ' || min_invoice_total || ' while the maximum output total is ' || max_invoice_total || '.'); 
+DECLARE 
+salary_stella NUMBER; 
+title_stella VARCHAR2(10);
+
+BEGIN
+
+SELECT salary, title
+INTO salary_stella, title_stella
+FROM student.employee
+WHERE NAME = 'Stella';
+DBMS_OUTPUT.put_line('Stella is ' || title_stella || ' and has a salary of ' || salary_stella ||' .');
 end;
-
-
-SET SERVEROUTPUT ON
-declare
-  min_invoice_total student.employee.invoice_total%TYPE;
-  max_invoice_total student.employee.invoice_total%TYPE;
-begin
-   SELECT MIN(invoice_total), MAX(invoice_total) INTO min_invoice_total,max_invoice_total
-   FROM student.employee;
-   DBMS_OUTPUT.put_line('The minimum invoice total is ' || min_invoice_total || ' while the maximum output total is ' || max_invoice_total || '.'); 
-end;
-
 
 
 
