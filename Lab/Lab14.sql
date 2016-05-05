@@ -417,16 +417,19 @@ END;
 
 SET SERVEROUTPUT ON
 DECLARE 
-salary_stella NUMBER; 
-title_stella VARCHAR2(10);
+salary_sally NUMBER; 
+title_sally VARCHAR2(10);
 
 BEGIN
 
 SELECT salary, title
-INTO salary_stella, title_stella
+INTO salary_sally, title_sally
 FROM student.employee
-WHERE NAME = 'Stella';
-DBMS_OUTPUT.put_line('Stella is ' || title_stella || ' and has a salary of ' || salary_stella ||' .');
+WHERE NAME = 'Sally';
+DBMS_OUTPUT.put_line('Sally is ' || title_sally || ' and has a salary of ' || salary_sally ||' .');
+exception
+  WHEN NO_DATA_FOUND THEN
+  DBMS_OUTPUT.put_line('We are sorry- the query you are trying to structure is no longer available or outside the table area.  Message  number KS 20.');
 end;
 
 
