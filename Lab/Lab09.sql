@@ -1,3 +1,6 @@
+
+
+
 -- Links:
 -- http://www.java2s.com/Code/Oracle/Table/CreatetablewithdatatypeVARCHAR2DateNumber82.htm
 
