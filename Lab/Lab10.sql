@@ -180,7 +180,10 @@ WHERE LENGTH(REGION_NAME) > 4;
 -- ****15.  Using LPAD and RPAD, recreate the following result table for department 100. Use the 
 --         Employees table.
 
-select first_name || last_name || 'earns' || salary from hr_employees AS "LPAD RPAD Example" where department_id= 100;
+sSelect rpad(first_name||' '||last_name,10)||' earns '||lpad(salary,6,' ') as "LPAD RPAD Example"
+From hr.employees
+Where department_id = 100
+Order By 1;
 
   
 
@@ -190,13 +193,107 @@ select first_name || last_name || 'earns' || salary from hr_employees AS "LPAD R
 
 -- Partial result table (107 rows total)
 
-https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions016.htm
+-- https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions016.htm
 
-SELECT Last_name,HIRE_DATE,
-       CAST('01-JUN-2000'AS TIMESTAMP WITH LOCAL TIME ZONE),
+Select last_name, hire_date, (to_date('01-Jun-2000', 'dd-mon-yyyy') - hire_date) * 2 as "Bonus"
+From hr.employees
+Order by "Bonus" desc;
 
-  (SELECT COUNT(*)
-   FROM DUAL
-   WHERE TO_CHAR(HIRE_DATE + LEVEL - 1, 'DY') NOT IN ('SAT',
-                                                       'SUN') CONNECT BY LEVEL <= (SYSDATE - HIRE_DATE + 1)*2 ) AS "Bonus"
-FROM HR_EMPLOYEES;
+
+##EC
+
+--P17
+Select first_name, last_name, employee_id, 
+       mod(employee_id, 4) + 1 as "Team#"
+From hr.employees
+Order By employee_id;
+
+--P18
+Select mod(employee_id, 4) + 1 as "Team#", count(*) as "Employees on each Team"
+From hr.employees
+Group By mod(employee_id, 4) + 1
+Order By 1;
+
+--P19 
+Select hire_date, add_months(hire_date, -15) as "15 Months Before the Hire Date"
+From hr.employees
+Order By hire_date;
+
+--P20
+Select last_name, salary, nvl(commission_pct, 0.0) as "Commission Percent",
+       nvl2(commission_pct, 'Commission Earner', 'Not a Commission Earner') as employee_type
+From hr.employees
+Order By salary desc;
+
+--P21
+Select to_char(end_date, 'yyyy') as "Year",
+       count(*) as "Number of Employees"
+From hr.job_history
+Group by to_char(end_date, 'yyyy')
+Order by 2 desc;
+
+--P22
+Select job_id, to_char(avg(salary), '$99,999.99') as "Average Salary", count(*) as "Total"
+From hr.employees
+Group By job_id
+Having avg(salary) > 10000 and
+       count(*) > 1
+Order by job_id;
+
+--P23
+Select region_name
+From hr.regions
+Natural Join hr.countries
+Where country_name = 'Canada';
+
+--P24
+Select e.last_name, d.department_name
+From hr.departments d
+Full Outer Join hr.employees e
+  ON e.department_id = d.department_id
+Order By d.department_name;
+
+--P25
+Select e.last_name, d.department_name
+From hr.departments d
+Full Outer Join hr.employees e
+  ON e.department_id = d.department_id
+Where d.department_name is null
+Order By e.last_name;
+
+--P26
+Select manager_id 
+From hr.employees
+Where department_id = 20
+UNION
+Select manager_id 
+From hr.employees
+Where department_id = 30
+MINUS
+Select manager_id 
+From hr.employees
+Where department_id = 50;
+
+--P27
+Select 'Advertising Team Member: ' || substr(first_name, 1, 1) || '. ' ||
+       last_name as "Initial and Last Name"
+From hr.employees
+Where substr(job_id,1,2) = 'AD'
+Order By 1;
+
+--28
+Select to_char(365.25 * 24 * 60 * 60, '999,999,999') as "Seconds in a year"
+From dual;
+
+--29
+Select to_char(to_date('20-JUL-2001 10:40:12', 'dd-MON-yy hh24:mi:ss') - 2, 'dd-Mon-yy hh24:mi:ss') as "Subtract 2 Days",
+       to_char(to_date('20-JUL-2001 10:40:12', 'dd-MON-yy hh24:mi:ss') + .5, 'dd-Mon-yy hh24:mi:ss') as "Add Half a Day",
+       to_char(to_date('20-JUL-2001 10:40:12', 'dd-MON-yy hh24:mi:ss') + 4.5/24, 'dd-Mon-yy hh24:mi:ss') as "Add 4 and a Half Hours"
+From dual;
+
+--30
+Select to_char(to_date('13-May-2015', 'dd-mon-yyyy'), 'Day') || ', ' || trim(to_char(to_date('13-May-2015', 'dd-mon-yyyy'), 'Month')) || ' ' || to_char(to_date('13-May-2015', 'dd-mon-yyyy'), 'YYYY') as "Formatted Current Date"
+From dual;
+
+
+
