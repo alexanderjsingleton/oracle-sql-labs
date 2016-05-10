@@ -180,7 +180,7 @@ WHERE LENGTH(REGION_NAME) > 4;
 -- ****15.  Using LPAD and RPAD, recreate the following result table for department 100. Use the 
 --         Employees table.
 
-sSelect rpad(first_name||' '||last_name,10)||' earns '||lpad(salary,6,' ') as "LPAD RPAD Example"
+Select rpad(first_name||' '||last_name,10)||' earns '||lpad(salary,6,' ') as "LPAD RPAD Example"
 From hr.employees
 Where department_id = 100
 Order By 1;

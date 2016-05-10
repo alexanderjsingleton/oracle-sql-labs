@@ -234,14 +234,29 @@ INSERT INTO countries VALUES
 -- ORDER BY student_id;
 
 
-
-
-
 create view hr_dept as (
 SELECT location_id, city, state_province AS "State", country_name AS "Country"
 FROM locations l,
      countries c
 WHERE l.country_id=c.country_id);
+
+
+-- Exactly Correct answer:
+-- SELECT l.location_id, l.city, l.state_province, c.country_name
+-- From locations l join countries c on l.country_id=c.country_id;
+-- create view v_locations as (SELECT l.location_id, l.city, l.state_province AS STATE, c.country_name AS COUNTRY
+-- From locations l join countries c on l.country_id=c.country_id);
+
+
+-- STEP IV Senior management would like an “easy button” located on their front-end application dashboard 
+-- that when clicked will display the following information:
+-- “Location ID: location_id is located in city and in the state of state_province”
+
+-- You must write a PL/SQL script that uses three declared variables. Using a CURSOR, the script will display all rows 
+-- found in the result set
+
+
+
 
 SET SERVEROUTPUT ON;
 
